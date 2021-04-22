@@ -3,9 +3,6 @@ const express = require('express');
 // Sets up the Express App
 const htmlRoutes = require('./routes/htmlRoutes');
 const apiRoutes = require('./routes/apiRoutes');
-const path = require('path');
-const fs = require('fs');
-const util = require('util')
 
 const app = express();
 const PORT = process.env.PORT || 3000;

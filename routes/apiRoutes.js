@@ -19,8 +19,8 @@ router.get('/', async (req, res) => {
 router.get('/:note', async (req, res) => {
     const chosen = req.params.note;
     let notes = await readFile()
-    let [matchedChar] = notes.filter(note => note.routeName === chosen)
-    if (matchedChar) return res.json(matchedChar);
+    let [matchedNote] = notes.filter(note => note.title === chosen)
+    if (matchedNote) return res.json(matchedNote);
     return res.json(false);
 });
 
