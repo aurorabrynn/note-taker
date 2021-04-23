@@ -14,14 +14,18 @@ router.get('/', async (req, res) => {
     res.json(newNote);
 });
 
-// return a single note, or returns false
+// return a single note
 // localhost:3000/api/notes/:note
 router.get('/:note', async (req, res) => {
     const chosen = req.params.note;
     let notes = await readFile()
-    let [matchedNote] = notes.filter(note => note.title === chosen)
-    if (matchedNote) return res.json(matchedNote);
+    let [matchedNote] = notes.filter(note => note.id === chosen)
+    if (matchedNote) {
+        return res.json(matchedNote);
+    }
     return res.json(false);
 });
+
+//delete single note
 
 module.exports = router;
