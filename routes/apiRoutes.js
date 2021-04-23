@@ -16,16 +16,14 @@ router.get('/', async (req, res) => {
 
 // return a single note
 // localhost:3000/api/notes/:note
-router.get('/:note', async (req, res) => {
-    const chosen = req.params.note;
+router.get(`/:id`, async (req, res) => {
+    const clicked = req.params.id;
     let notes = await readFile()
-    let [matchedNote] = notes.filter(note => note.id === chosen)
+    let [matchedNote] = notes.filter(note => note.id === clicked)
     if (matchedNote) {
         return res.json(matchedNote);
     }
     return res.json(false);
 });
-
-//delete single note
 
 module.exports = router;
